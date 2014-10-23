@@ -24,7 +24,49 @@
 {
     [super viewDidLoad];
 
-    [self performSearchWithKeyword:@"mobile"];
+    if ([[[NSProcessInfo processInfo] environment] objectForKey:@"XCInjectBundle"]) {
+        NSLog(@"TRUE STORY");
+
+        NSString * path = [[NSBundle mainBundle] pathForResource:  @"eventsData_mobile" ofType: @""];
+
+//        NSBundle* myBundle;
+
+        // Obtain a reference to a loadable bundle.
+//        myBundle = [NSBundle bundleWithPath:@"/Supporting Files/eventsData_mobile"];
+
+//        NSArray *jsonArray = [[NSJSONSerialization JSONObjectWithData:@"eventsData_mobile"
+//                                                              options:NSJSONReadingAllowFragments
+//                                                                error:nil] objectForKey:@"results"];
+
+//        NSString* content = [NSString stringWithContentsOfFile:path
+//                                                      encoding:NSUTF8StringEncoding
+//                                                         error:NULL];
+
+
+
+
+        NSLog(@"%@", path);
+
+
+
+
+
+
+
+
+
+
+
+    } else {
+        [self performSearchWithKeyword:@"mobile"];
+        NSLog(@"FALSE STORY");
+    }
+
+
+
+
+
+
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
